@@ -10,4 +10,7 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+- (IBAction)openImageAction:(id)sender;
+
 @end

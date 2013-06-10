@@ -26,4 +26,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)openImageAction:(id)sender {
+    
+    // ハンドルから画像ファイルを読み込んでUIImageのオブジェクトを作成
+    UIImage *image = [UIImage imageNamed:@"haruna_png"];
+    
+    // UIImageViewのimageプロパティに設定
+    self.imageView.image = image;
+    
+}
 @end
