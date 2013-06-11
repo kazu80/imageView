@@ -50,16 +50,72 @@
 }
 
 - (IBAction)openImageAction2:(id)sender {
-    NSArray *pathTable;
+
+    // イメージピッカーを作成する
+    UIImagePickerController *imagePicker;
+    imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
     
-    // Documentディレクトリのパスを取得
-    pathTable = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    // カメラが使用可能かのチェック
+    if ( [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] ) {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.allowsEditing = YES; // 撮影後編集可能にする
+    }
+    else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
     
-    NSString *docPath = [pathTable objectAtIndex:0];
-    NSString *path = [docPath stringByAppendingPathComponent:@"haruna.jpg"];
+    // イメージピッカーをモーダルビューとして表示する
+    [self presentViewController:imagePicker animated:YES completion:^{
+       
+        //表示後の処理
+        
+    }];
     
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    self.imageView.image = image;
     
 }
+
+// 写真の使用決定時に呼ばれる
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if ( image) {
+        self.imageView.image = image;
+    }
+    
+    // モーダルビューを閉じる
+    [self dismissViewControllerAnimated:YES completion:^{
+        // 閉じた時の処理を記述
+        NSLog(@"didFinishPickingMediaWithInfo");
+    }];
+}
+
+// 写真の使用キャンセル時に呼ばれる
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    // モーダルビューを閉じる
+    [self dismissViewControllerAnimated:YES completion:^{
+        // 閉じた時の処理を書く
+        NSLog(@"didCancel");
+    }];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end
