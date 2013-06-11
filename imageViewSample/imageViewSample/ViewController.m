@@ -34,5 +34,32 @@
     // UIImageViewのimageプロパティに設定
     self.imageView.image = image;
     
+    
+    // 画像を保存する
+    NSArray *pathTable;
+    
+    // Documentディレクトリのパスを取得
+    pathTable = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *docPath = [pathTable objectAtIndex:0];
+    NSString *path = [docPath stringByAppendingPathComponent:@"harunachan.png"];
+    
+    NSData *data = UIImagePNGRepresentation(image);
+    [data writeToFile:path atomically:YES];
+    
+}
+
+- (IBAction)openImageAction2:(id)sender {
+    NSArray *pathTable;
+    
+    // Documentディレクトリのパスを取得
+    pathTable = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *docPath = [pathTable objectAtIndex:0];
+    NSString *path = [docPath stringByAppendingPathComponent:@"haruna.jpg"];
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    self.imageView.image = image;
+    
 }
 @end

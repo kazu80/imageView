@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 - (IBAction)openImageAction:(id)sender;
+- (IBAction)openImageAction2:(id)sender;
 
 @end
