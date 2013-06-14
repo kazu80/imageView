@@ -18,6 +18,8 @@
 		FCB7446317661DA700AA5652 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB7446217661DA700AA5652 /* Default-568h@2x.png */; };
 		FCB7446617661DA700AA5652 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7446517661DA700AA5652 /* ViewController.m */; };
 		FCB7446917661DA700AA5652 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB7446717661DA700AA5652 /* ViewController.xib */; };
+		FCB74470176620BB00AA5652 /* haruna.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCB7446F176620BA00AA5652 /* haruna.jpg */; };
+		FCB744721766239500AA5652 /* haruna_png.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB744711766239500AA5652 /* haruna_png.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		FCB7446417661DA700AA5652 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FCB7446517661DA700AA5652 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FCB7446817661DA700AA5652 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		FCB7446F176620BA00AA5652 /* haruna.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haruna.jpg; sourceTree = "<group>"; };
+		FCB744711766239500AA5652 /* haruna_png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haruna_png.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		FCB7444017661DA700AA5652 = {
 			isa = PBXGroup;
 			children = (
+				FCB7446F176620BA00AA5652 /* haruna.jpg */,
+				FCB744711766239500AA5652 /* haruna_png.png */,
 				FCB7445217661DA700AA5652 /* imageViewSample */,
 				FCB7444B17661DA700AA5652 /* Frameworks */,
 				FCB7444A17661DA700AA5652 /* Products */,
@@ -163,6 +169,8 @@
 				FCB7446117661DA700AA5652 /* Default@2x.png in Resources */,
 				FCB7446317661DA700AA5652 /* Default-568h@2x.png in Resources */,
 				FCB7446917661DA700AA5652 /* ViewController.xib in Resources */,
+				FCB74470176620BB00AA5652 /* haruna.jpg in Resources */,
+				FCB744721766239500AA5652 /* haruna_png.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
