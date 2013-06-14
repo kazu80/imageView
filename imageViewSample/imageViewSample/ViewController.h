@@ -13,5 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 - (IBAction)openImageAction:(id)sender;
 - (IBAction)openImageAction2:(id)sender;
+@property (strong, nonatomic) NSMutableData *dlData;
+- (IBAction)downloadAction:(id)sender;
+
 
 @end

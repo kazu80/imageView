@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "imageViewSample/ViewController.m"
-         timestampString = "392601414.315607"
+         timestampString = "392869505.486482"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
          landmarkName = "-openImageAction:"
          landmarkType = "5">
       </FileBreakpoint>

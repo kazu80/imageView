@@ -13,6 +13,9 @@
 @end
 
 @implementation ViewController
+@synthesize imageView;
+@synthesize dlData;
+
 
 - (void)viewDidLoad
 {
@@ -32,7 +35,7 @@
     UIImage *image = [UIImage imageNamed:@"haruna_png"];
     
     // UIImageViewのimageプロパティに設定
-    self.imageView.image = image;
+    imageView.image = image;
     
     
     // 画像を保存する
@@ -101,21 +104,61 @@
     }];
 }
 
+- (IBAction)downloadAction:(id)sender {
+    NSString *urlPath = @"http://img5.blogs.yahoo.co.jp/ybi/1/e3/40/tktty914/folder/431534/img_431534_1667464_0?1174748196";
+    
+    // 文字列をNSURLに変換して、NSURLRequestを作成する
+    NSURL *url = [NSURL URLWithString: urlPath];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    // NSURLRequestを指定してNSURLConectionを作成
+    NSURLConnection *connection;
+    connection = [NSURLConnection connectionWithRequest:request delegate: self];
+    
+    if ( connection ) {
+        self.dlData = [[NSMutableData alloc] initWithLength:0];
+    }
+}
 
+// ダウンロードの最初に呼ばれる
+- (void) connection: (NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response
+{
+    // ダウンロード中、必要ならばここでインジケーターを表示したり
+    // ユーザーに操作を行わせないよう、ユーザーインタフェースを
+    // 無効化したりする
+    // ここでは、ステータスバーのインジケーターを表示している
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
 
+// ダウロード中継続的に呼ばれる
+- (void) connection: (NSURLConnection *) connection didReceiveData:(NSData *)data
+{
+    // ダウンロードされたデータをNSMutableDataに継ぎ足していく
+    [self.dlData appendData:data];
+}
 
+// 何かしらのエラーでダウンロードが失敗した場合に呼ばれる
+- (void) connection: (NSURLConnection *) connection didFailWithError:(NSError *)error
+{
+    // プロパティをクリアする
+    self.dlData = nil;
+    
+    // インジケーターを停止する
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+// ダウンロード完了時に呼ばれる
+- (void) connectionDidFinishLoading: (NSURLConnection *) connection
+{
+    // ダウンロードされたNSDataのオブジェクトからUIImageを作成する
+    UIImage * image = [UIImage imageWithData:self.dlData];
+    imageView.image = image;
+    
+    // プロパティをクリアする
+    self.dlData = nil;
+    
+    // インジケーターを停止する
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
 
 @end
